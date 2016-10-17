@@ -178,7 +178,6 @@
         module.exports = DiyAlert.attach;
         module.exports.DiyAlert = DiyAlert;
     } else {
-        console.log(0);
         window.DiyAlert = DiyAlert;
     }
 }());

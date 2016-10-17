@@ -47,11 +47,11 @@ gulp.task('base64',['less','sass'], function() {
             maxImageSize: 8 * 1024, // bytes
             debug: false
         }))
-        .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('autoprefixer',['base64'], function () {
-    return gulp.src('./dist/**/*.css')
+    return gulp.src('./dist/css/**/*.css')
         .pipe(autoprefixer({
             browsers: [
                 "ie >= 8",
@@ -65,13 +65,13 @@ gulp.task('autoprefixer',['base64'], function () {
                 "bb >= 10"
             ],
             cascade: false}))
-        .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('minifycss',['autoprefixer'], function() {
-    return gulp.src('./dist/**/*.css')
+    return gulp.src('./dist/css/**/*.css')
         .pipe(cleanCSS({compatibility: 'ie8'}))
-        .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('browsersync',['minifycss'], function() {

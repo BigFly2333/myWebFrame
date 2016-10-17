@@ -17,7 +17,7 @@
                 this.scrollFix(params);
             }
         },
-        isString: function(){
+        isString: function(str){
             return (typeof str=='string')&&str.constructor==String;
         },
         isArray: function(obj){
