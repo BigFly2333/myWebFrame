@@ -4,69 +4,48 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
+    <link rel="stylesheet" href="dist/css/common/base.css">
     <style>
-        *{
-            margin: 0;
-            padding: 0;
+        .main{
+            padding-top: 2.4rem;
+            padding-bottom: 2.4rem;
         }
-        html,body{
-            width: 100%;
-            height: 100%;
-            -webkit-overflow-scrolling: touch;
+        .footer a{
+            width: inherit;
+            height: inherit;
+            background: lightskyblue;
+            line-height: 2.4rem;
+            text-align: center;
+            display: block;
         }
-        div.wrap{
-            position: relative;
-            margin: 0 auto;
-            width: 16rem;
-            height: 100%;
-        }
-        div.main{
-            width: 100%;
-            height: 100%;
+        .footer a:active{
             background: red;
-            overflow: auto;
         }
-        div.main div.item{
+        #textarea{
             width: 16rem;
-            height: 5rem;
-            overflow: auto;
+            height: 4rem;
+            background: darkgray;
         }
-        .item-list{
+        .item{
             width: 16rem;
-            height: 2rem;
-        }
-        .black{
-            background: black;
-        }
-        .blue{
-            background: blue;
-        }
-        .green{
-            background: green;
-        }
-        .yellow{
-            background: yellow;
-        }
-        .gray{
-            background: gray;
-        }
-        .purple{
+            height: 16rem;
             background: purple;
         }
     </style>
 </head>
 <body>
 <div class="wrap">
+    <header class="header" id="header">
+        <a href="javascript:void(0)" class="browser-back"></a>
+        这是个title
+    </header>
     <div class="main">
-        <div class="item">
-            <div class="item-list black"></div>
-            <div class="item-list blue"></div>
-            <div class="item-list purple"></div>
-            <div class="item-list yellow"></div>
-            <div class="item-list green"></div>
-            <div class="item-list gray"></div>
-        </div>
+        <div class="item"></div>
+        <textarea name="" id="textarea" cols="30" rows="10"></textarea>
     </div>
+    <footer class="footer" id="footer">
+        <a href="javascript:void(0)">底部按钮</a>
+    </footer>
 </div>
 
 <script src="dist/js/lib/base.js"></script>
@@ -79,7 +58,9 @@
 <script src="dist/js/class/PageInit.js"></script>
 
 <script>
-    new PageInit('main');
+    $(function(){
+        new PageInit('main');
+    });
 </script>
 </body>
 </html>

@@ -35,7 +35,7 @@ gulp.task('sass', function(){
 gulp.task('watch',['browsersync'], function(){
     gulp.watch('./src/**/*.less', ['less']);
     gulp.watch('./src/**/*.scss', ['sass']);
-    gulp.watch('./src/**/*.js', ['babel']);
+    //gulp.watch('./src/**/*.js', ['babel']);
     //gulp.watch(config.images, ['images']);
 });
 
