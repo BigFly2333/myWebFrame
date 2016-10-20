@@ -3,18 +3,19 @@
  */
 ;(function(){
     var PhotoSlider = Class.extend({
-        init: function(id){
+        init: function(id,width,height){
             var _this = this,
                 x = 0,
                 y = 0,
                 isMove = false,
                 n = 0;
-            this.width = 16;
-            this.height = 3.6;
+
+            this.fontSize = parseFloat(getComputedStyle(window.document.documentElement)['font-size']);
+            this.width = width*this.fontSize;
+            this.height = height*this.fontSize;
             this.left = 0;
             this.top = 0;
 
-            this.fontSize = parseFloat(getComputedStyle(window.document.documentElement)['font-size']);
             this.wrap = typeof id === "string" ? document.getElementById(id) : id;
             this.oUl = this.wrap.getElementsByTagName("ul")[0];
             this.aLi = this.wrap.getElementsByTagName("li");
@@ -52,9 +53,9 @@
                 }, 3000);
             };
             this.options = [
-                {width:this.width*this.fontSize, height:this.height*this.fontSize, top:this.top, left:this.left, zIndex:998 ,opacity:100},
-                {width:this.width*this.fontSize, height:this.height*this.fontSize, top:this.top, left:this.left, zIndex:998 ,opacity:0},
-                {width:this.width*this.fontSize, height:this.height*this.fontSize, top:this.top, left:this.left, zIndex:998 ,opacity:0},
+                {width:this.width, height:this.height, top:this.top, left:-this.width, zIndex:998 ,opacity:100},
+                {width:this.width, height:this.height, top:this.top, left:this.left, zIndex:998 ,opacity:0},
+                {width:this.width, height:this.height, top:this.top, left:this.width, zIndex:998 ,opacity:0},
             ];
             for (var i = 0; i < this.aLi.length; i++) this.aSort[i] = this.aLi[i];
             this.setUp();

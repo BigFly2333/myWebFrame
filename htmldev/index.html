@@ -21,15 +21,31 @@
         .footer a:active{
             background: red;
         }
-        #textarea{
+        #slider{
             width: 16rem;
             height: 4rem;
-            background: darkgray;
+            overflow: hidden;
         }
-        .item{
-            width: 16rem;
-            height: 16rem;
+        .red{
+            background: red;
+        }
+        .yellow{
+            background: yellow;
+        }
+        .blue{
+            background: blue;
+        }
+        .purple{
             background: purple;
+        }
+        ul{
+            position: relative;
+            width: 16rem;
+            height: 4rem;
+        }
+        li{
+            width: 16rem;
+            height: 4rem;
         }
     </style>
 </head>
@@ -40,8 +56,16 @@
         这是个title
     </header>
     <div class="main">
-        <div class="item"></div>
-        <textarea name="" id="textarea" cols="30" rows="10"></textarea>
+        <div id="slider">
+            <ul>
+                <li class="red"></li>
+                <li class="yellow"></li>
+                <li class="blue"></li>
+                <li class="purple"></li>
+            </ul>
+        </div>
+        <div style="width:  16rem;height: 5rem;background: purple;"></div>
+        <input type="text" style="width: 16rem;height: 3rem;">
     </div>
     <footer class="footer" id="footer">
         <a href="javascript:void(0)">底部按钮</a>
@@ -56,10 +80,12 @@
 <script src="dist/js/class/FastClick.js"></script>
 <script src="dist/js/class/ScrollFix.js"></script>
 <script src="dist/js/class/PageInit.js"></script>
+<script src="dist/js/class/PhotoSlider.js"></script>
 
 <script>
     $(function(){
         new PageInit('main');
+        new PhotoSlider('slider',16,4);
     });
 </script>
 </body>

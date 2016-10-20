@@ -4,17 +4,40 @@
 ;(function(){
     var PageInit = Class.extend({
         init: function(params){
-            if(this.isIOS()) this.fastClick();
-
+            this.fastClick();
+            this.footerFix();
             this.compatibleIOSBtnActive();
-
+            this.scrollFix(params);
+        },
+        //兼容ios端:active不能正常显示的bug
+        compatibleIOSBtnActive: function(){
+            document.addEventListener('touchmove',function(){});
+        },
+        //禁止ios端微信页面滚动溢出
+        scrollFix: function(params){
             if(this.isArray(params)){
                 for(var i=0;i<params.length;i++){
-                    this.scrollFix(params[i]);
+                    new ScrollFix(params[i]);
                 }
             }
             if(this.isString(params)){
-                this.scrollFix(params);
+                new ScrollFix(params);
+            }
+        },
+        //兼容ios手机端点击300ms延迟
+        fastClick: function(){
+            if(this.isIOS()){
+                FastClick.attach(document.body);
+            }
+        },
+        //兼容安卓手机底部按钮遮盖bug
+        footerFix: function(){
+            var footer = document.getElementById('footer');
+            if(!this.isIOS()&&footer){
+                window.onresize = function() {
+                    var top = footer.offsetTop;
+                    top < 400 ? footer.style.visibility = 'hidden' : footer.style.visibility = 'visible';
+                };
             }
         },
         isString: function(str){
@@ -26,18 +49,6 @@
         isIOS: function(){
             var u = navigator.userAgent;
             return !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-        },
-        //兼容ios端:active不能正常显示的bug
-        compatibleIOSBtnActive: function(){
-            document.addEventListener('touchmove',function(){});
-        },
-        //禁止ios端微信页面滚动溢出
-        scrollFix: function(className){
-            new ScrollFix(className);
-        },
-        //兼容ios手机端点击300ms延迟
-        fastClick: function(){
-            FastClick.attach(document.body);
         }
     });
     if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
