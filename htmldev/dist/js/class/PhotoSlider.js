@@ -157,7 +157,7 @@
             }, 30)
         }
     });
-    if (typeof define === 'function' && _typeof(define.amd) === 'object' && define.amd) {
+    if (typeof define === 'function' && typeof(define.amd) === 'object' && define.amd) {
 
         // AMD. Register as an anonymous module.
         define(function () {

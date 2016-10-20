@@ -72,34 +72,8 @@
     </footer>
 </div>
 
-<script src="dist/js/lib/require.min.js"></script>
-<script src="dist/js/lib/base.js"></script>
-<script src="dist/js/lib/zepto.min.js"></script>
-<script src="dist/js/lib/underscore.min.js"></script>
-<script src="dist/js/lib/simpleInheritance.js"></script>
-<script>
-    require.config({
-        paths: {
-            "zepto": "dist/js/lib/zepto.min",
-            "underscore": "dist/js/lib/underscore.min",
-            "meta": "dist/js/class/Meta",
-            "diyAlert": "dist/js/class/DiyAlert",
-            "fastClick": "dist/js/class/FastClick",
-            "scrollFix": "dist/js/class/ScrollFix",
-            "pageInit": "dist/js/class/PageInit",
-            "photoSlider": "dist/js/class/PhotoSlider",
-        },
-        shim: {
-            pageInit: {
-                deps: ['meta','diyAlert','fastClick','scrollFix']
-            }
-        }
-    });
-    require(['zepto','underscore','meta','diyAlert','fastClick','scrollFix','pageInit','photoSlider'],function($,_,Meta,DiyAlert,FastClick,ScrollFix,PageInit,PhotoSlider){
-        new PageInit('main');
-        new PhotoSlider('slider',16,4);
-    });
-</script>
+<script type="text/javascript" data-main="./dist/js/index.js" src="./dist/js/lib/require.min.js"></script>
+
 <!--<script src="dist/js/class/Meta.js"></script>-->
 <!--<script src="dist/js/class/DiyAlert.js"></script>-->
 <!--<script src="dist/js/class/FastClick.js"></script>-->
