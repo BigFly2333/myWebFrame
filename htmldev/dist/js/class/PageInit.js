@@ -4,10 +4,17 @@
 ;(function(){
     var PageInit = Class.extend({
         init: function(params){
+            this.loadMeta();
             this.fastClick();
             this.footerFix();
             this.compatibleIOSBtnActive();
             this.scrollFix(params);
+        },
+        //动态写入一些meta标签
+        loadMeta: function(){
+            new Meta('format-detection','telephone=no');
+            new Meta('msapplication-tap-highlight','no');
+            new Meta('xuDaMin','author');
         },
         //兼容ios端:active不能正常显示的bug
         compatibleIOSBtnActive: function(){
